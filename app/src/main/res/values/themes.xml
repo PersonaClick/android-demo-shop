@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      The app follows the system: DayNight resolves to light or dark, and so do the UI kit's colors.
+      No action bar: the shop draws its own top and goes edge to edge, its screens making room for the
+      system bars themselves. forceDarkAllowed=false keeps the platform from inverting the app's own
+      dark colors.
+    -->
+    <style name="Theme.Shop" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/personalization_background_generic</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <!--
+      The sort sheet: a Material bottom sheet on the kit's modal surface, top corners of the kit's
+      modal radius, kept when the sheet is expanded. DayNight, so the sheet and its ripples follow
+      the system. A full-screen window, edge to edge: the sheet runs under the navigation bar, its
+      content padded above it.
+    -->
+    <style name="ThemeOverlay.Shop.SortSheet" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Shop.SortSheet</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="enableEdgeToEdge">true</item>
+    </style>
+
+    <style name="Widget.Shop.SortSheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@color/personalization_background_modal</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Shop.SortSheet</item>
+        <item name="shouldRemoveExpandedCorners">false</item>
+        <item name="paddingBottomSystemWindowInsets">true</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Shop.SortSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/personalization_radius_modal</item>
+        <item name="cornerSizeTopRight">@dimen/personalization_radius_modal</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+</resources>

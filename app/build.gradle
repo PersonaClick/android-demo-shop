@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.personaclick.demoshop'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.personaclick.demoshop.android'
+        // The SDK's own dependencies (media3) need 21.
+        minSdk 21
+        targetSdk 36
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // A demo: the release build is signed with the debug key, so it installs as it is.
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // The PersonaClick Android SDK: tracking, products, search and the UI kit.
+    implementation 'com.github.personaclick:android-sdk:v2.47.0'
+
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    // The sort sheet (BottomSheetDialog).
+    implementation 'com.google.android.material:material:1.12.0'
+    // The product page photo.
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+}

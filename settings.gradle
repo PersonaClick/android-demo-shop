@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        // The PersonaClick Android SDK is published on JitPack.
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = 'android-demo-shop'
+include ':app'
